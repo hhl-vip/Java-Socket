@@ -14,11 +14,11 @@ import java.net.Socket;
  * @author Tomcatx
  *
  */
-public class Server {
+public class TCPServer {
 	 final int port=8000;
 	 private ServerSocket ss;
 	 
-	 public Server()throws IOException{
+	 public TCPServer()throws IOException{
 		 ss = new ServerSocket(port);
 		 System.out.println("服务器已启动");
 	 }
@@ -84,7 +84,7 @@ public class Server {
 	 }
 	 public static void main(String[] args) {
 		try {
-			new Server().service();
+			new TCPServer().service();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

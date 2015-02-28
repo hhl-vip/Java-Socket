@@ -7,12 +7,12 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
-public class Client {
+public class TCPClient {
 	 final String host="localhost";
 	 final int port=8000;
 	 private Socket socket;
 	 
-	 public Client()throws IOException{
+	 public TCPClient()throws IOException{
 		 socket = new Socket(host,port);
 	 }
 	 
@@ -72,7 +72,7 @@ public class Client {
 	 
 	 public static void main(String[] args) {
 		try {
-			new Client().client();
+			new TCPClient().client();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
