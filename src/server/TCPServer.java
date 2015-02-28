@@ -20,7 +20,7 @@ public class TCPServer {
 	 
 	 public TCPServer()throws IOException{
 		 ss = new ServerSocket(port);
-		 System.out.println("服务器已启动");
+		 System.out.println("server started");
 	 }
 	 
 	 public String echo(String msg){
@@ -58,11 +58,14 @@ public class TCPServer {
 					System.out.println("new connection accepted "+socket.getInetAddress()+" "+socket.getPort());
 					BufferedReader br = getReader(socket);
 					PrintWriter pw = getWriter(socket);
+					BufferedReader bb = new BufferedReader(new InputStreamReader(System.in));
 					
 					String msg = null;
 					while ((msg=br.readLine())!=null) {
-						System.out.println(msg);
-						pw.println(echo(msg));
+						System.out.println("client:"+msg);
+						String text = bb.readLine();
+						System.out.println(echo(text));
+						pw.println(text);
 						if (msg.equals("bye")) {
 							break;
 						}

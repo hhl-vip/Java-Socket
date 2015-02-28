@@ -49,8 +49,9 @@ public class TCPClient {
 		 String msg=null;
 		 try {
 			while ((msg=bb.readLine())!=null) {
+					System.out.println(echo(msg));
 					pw.println(msg);
-					System.out.println(br.readLine());
+					System.out.println("server:"+br.readLine());
 					if (msg.equals("bye")) {
 						break;
 					}
