@@ -19,7 +19,7 @@ public class TCPServer {
 	 private ServerSocket ss;
 	 
 	 public TCPServer()throws IOException{
-		 ss = new ServerSocket(port);
+		 ss = new ServerSocket(port);//创建一个ServerSocket 以8000端口监听
 		 System.out.println("server started");
 	 }
 	 
@@ -54,11 +54,11 @@ public class TCPServer {
 			Socket socket=null;
 			
 				try {
-					socket = ss.accept();
+					socket = ss.accept();//等待客户端连接
 					System.out.println("new connection accepted "+socket.getInetAddress()+" "+socket.getPort());
-					BufferedReader br = getReader(socket);
-					PrintWriter pw = getWriter(socket);
-					BufferedReader bb = new BufferedReader(new InputStreamReader(System.in));
+					BufferedReader br = getReader(socket);//读取
+					PrintWriter pw = getWriter(socket);//写入
+					BufferedReader bb = new BufferedReader(new InputStreamReader(System.in));//标准键盘输入
 					
 					String msg = null;
 					while ((msg=br.readLine())!=null) {
